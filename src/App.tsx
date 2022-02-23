@@ -1,23 +1,40 @@
 import './App.css';
-import TaskStatus from './TaskStatus';
+import { useState } from 'react';
+import TaskStatusCount from './TaskStatusCount';
+import TaskStatusSpecific from './TaskStatusSpecific';
 
 function App() {
-  const data = [
+  const [data, setData] = useState([
     {
       name: 'Sheltim',
       class: 'Paladin',
       unaQuests: 2,
-      ancientElveria: 1,
-      phantomPalace: 1
+      ancientElveria: [true, false],
+      phantomPalace: [false, true]
     },
     {
       name: 'Geria',
       class: 'Sorceress',
       unaQuests: 1,
-      ancientElveria: 0,
-      phantomPalace: 1
+      ancientElveria: [true, true],
+      phantomPalace: [false, false]
     }
-  ]
+  ]);
+
+  const changeCount = (fieldName:string, characterName:string) => {
+    return (newValue: number) => {
+      const index = data.findIndex(character => character.name === characterName);
+      setData([
+            ...data.slice(0, index),
+            {
+                ...data[index],
+                [fieldName]: newValue
+            },
+            ...data.slice(index + 1)
+      ]);
+    }
+  }
+
   return (
     <div className='App'>
       <table className='Task-table'>
@@ -31,9 +48,9 @@ function App() {
             <td>{character.name}</td>
             <td>{character.class}</td>
             <td>
-              <TaskStatus name='Una Quests' current={character.unaQuests} max={3} />
-              <TaskStatus name='Ancient Elveria' current={character.ancientElveria} max={2} />
-              <TaskStatus name='Phantom Palace' current={character.phantomPalace} max={2} />
+              <TaskStatusCount name='Una Quests' current={character.unaQuests} max={3} change={changeCount('unaQuests', character.name)} />
+              <TaskStatusSpecific name='Ancient Elveria' values={character.ancientElveria} />
+              <TaskStatusSpecific name='Phantom Palace' values={character.phantomPalace} />
             </td>
           </tr>
         )}
