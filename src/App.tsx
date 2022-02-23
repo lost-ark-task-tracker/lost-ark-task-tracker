@@ -1,14 +1,21 @@
 import './App.css';
+import TaskStatus from './TaskStatus';
 
 function App() {
   const data = [
     {
       name: 'Sheltim',
-      class: 'Paladin'
+      class: 'Paladin',
+      unaQuests: 2,
+      ancientElveria: 1,
+      phantomPalace: 1
     },
     {
       name: 'Geria',
-      class: 'Sorceress'
+      class: 'Sorceress',
+      unaQuests: 1,
+      ancientElveria: 0,
+      phantomPalace: 1
     }
   ]
   return (
@@ -24,9 +31,9 @@ function App() {
             <td>{character.name}</td>
             <td>{character.class}</td>
             <td>
-              <span className='Task-status'>Una Quests</span>
-              <span className='Task-status'>Ancient Elveria</span>
-              <span className='Task-status'>Phantom Palace</span>
+              <TaskStatus name='Una Quests' current={character.unaQuests} max={3} />
+              <TaskStatus name='Ancient Elveria' current={character.ancientElveria} max={2} />
+              <TaskStatus name='Phantom Palace' current={character.phantomPalace} max={2} />
             </td>
           </tr>
         )}

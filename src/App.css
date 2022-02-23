@@ -40,7 +40,3 @@
 .Task-table table, th, td {
   border: 1px solid black;
 }
-
-.Task-status {
-  display: block;
-}
