@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/lost-ark-task-tracker/static/css/main.4c575bf3.css",
-    "main.js": "/lost-ark-task-tracker/static/js/main.c53c1dd6.js",
+    "main.js": "/lost-ark-task-tracker/static/js/main.41734b76.js",
     "static/js/787.22f1f678.chunk.js": "/lost-ark-task-tracker/static/js/787.22f1f678.chunk.js",
     "index.html": "/lost-ark-task-tracker/index.html",
     "main.4c575bf3.css.map": "/lost-ark-task-tracker/static/css/main.4c575bf3.css.map",
-    "main.c53c1dd6.js.map": "/lost-ark-task-tracker/static/js/main.c53c1dd6.js.map",
+    "main.41734b76.js.map": "/lost-ark-task-tracker/static/js/main.41734b76.js.map",
     "787.22f1f678.chunk.js.map": "/lost-ark-task-tracker/static/js/787.22f1f678.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4c575bf3.css",
-    "static/js/main.c53c1dd6.js"
+    "static/js/main.41734b76.js"
   ]
 }
