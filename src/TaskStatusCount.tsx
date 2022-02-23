@@ -1,11 +1,11 @@
 import './TaskStatus.css';
 
 type TaskStatusProps = {
-    name: string,
-    current: number,
-    max: number,
-    change: (delta:number) => void
-  }
+  name: string,
+  current: number,
+  max: number,
+  change: (delta:number) => void
+}
 
 function TaskStatusCount({name, current, max, change}: TaskStatusProps) {
   const increment = () => {

@@ -1,16 +1,23 @@
 import './TaskStatus.css';
 
 type TaskStatusProps = {
-    name: string,
-    values: Array<boolean>
+  name: string,
+  values: Array<boolean>,
+  change: (index:number, newValue:boolean) => void
+}
+
+function TaskStatusSpecific({name, values, change}: TaskStatusProps) {
+  const handleChange = (index:number) => {
+    return (event: React.ChangeEvent<HTMLInputElement>) => {
+      change(index, event.target.checked);
+    }
   }
 
-function TaskStatusSpecific({name, values}: TaskStatusProps) {
   return (
     <span className='Task-status'>
       {name}
       {values.map((value: boolean, index: number) =>
-        <input type="checkbox" id={`${name}-${index}`} name={`${name}-${index}`} checked={value} />
+        <input type="checkbox" id={`${name}-${index}`} name={`${name}-${index}`} defaultChecked={value} onChange={handleChange(index)} />
       )}
     </span>
   );
